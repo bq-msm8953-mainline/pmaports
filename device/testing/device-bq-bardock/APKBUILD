@@ -1,0 +1,39 @@
+# Maintainer: Jens Reidel <adrian@travitia.xyz>
+# Reference: <https://postmarketos.org/devicepkg>
+
+pkgname=device-bq-bardock
+pkgdesc="BQ Aquaris X"
+pkgver=1
+pkgrel=1
+url="https://postmarketos.org"
+license="MIT"
+arch="aarch64"
+options="!check !archcheck"
+depends="
+	linux-postmarketos-qcom-msm8953
+	mkbootimg
+	postmarketos-base
+"
+makedepends="devicepkg-dev"
+source="deviceinfo modules-initfs"
+subpackages="$pkgname-nonfree-firmware:nonfree_firmware"
+
+build() {
+	devicepkg_build $startdir $pkgname
+}
+
+package() {
+	devicepkg_package $startdir $pkgname
+}
+
+nonfree_firmware() {
+	pkgdesc="Modem, WiFi, BT, ADSP, Venus and GPU Firmware"
+	depends="
+	"
+	mkdir "$subpkgdir"
+}
+
+sha512sums="
+2215ebc9ae36966e82f6aaa692c4914738580e5cdd45e91603d839ca17ce68b2154de48e825299d9d0c2db0747854534ad4f42ddfbc24a1daee2f1f1cd0e59d1  deviceinfo
+cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e  modules-initfs
+"
