@@ -1,0 +1,25 @@
+# Maintainer: Jens Reidel <adrian@travitia.xyz>
+pkgname=firmware-bq-bardock
+pkgver=1
+pkgrel=0
+pkgdesc="Firmware files for BQ Aquaris X"
+url="https://github.com/bq-msm8953-mainline/firmware-bq-bardock"
+arch="aarch64"
+license="proprietary"
+options="!strip !check !archcheck !spdx !tracedeps pmb:cross-native"
+
+_commit="1cf5c9e553fb040658ab203c36dea635775321e9"
+
+source="$pkgname-$_commit.tar.gz::$url/archive/$_commit.tar.gz"
+builddir="$srcdir/$pkgname-$_commit/lib/firmware/postmarketos"
+_fwdir="/lib/firmware/postmarketos"
+
+package() {
+	# GPU firmwares
+	install -Dm644 a506_zap.b02 -t "$pkgdir/$_fwdir"
+	install -Dm644 a506_zap.mdt -t "$pkgdir/$_fwdir"
+}
+
+sha512sums="
+3cebbac0a5cbe3aaf8101e79856144e3a52c2474739c9acd4936813e76137b195a0f6c2a46c098ef43ad80fff076b620e8eee43a256a9fc81de6933516f1e5fd  firmware-bq-bardock-1cf5c9e553fb040658ab203c36dea635775321e9.tar.gz
+"

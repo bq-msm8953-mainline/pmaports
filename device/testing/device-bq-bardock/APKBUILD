@@ -1,0 +1,36 @@
+# Maintainer: Jens Reidel <adrian@travitia.xyz>
+# Reference: <https://postmarketos.org/devicepkg>
+
+pkgname=device-bq-bardock
+pkgdesc="BQ Aquaris X"
+pkgver=1
+pkgrel=6
+url="https://postmarketos.org"
+license="MIT"
+arch="aarch64"
+options="!check !archcheck"
+depends="
+	firmware-bq-bardock
+	firmware-qcom-adreno-a530
+	linux-postmarketos-qcom-msm8953
+	mkbootimg
+	msm-firmware-loader
+	postmarketos-base
+	soc-qcom-msm8953
+	soc-qcom-msm8953-modem
+"
+makedepends="devicepkg-dev"
+source="deviceinfo modules-initfs"
+
+build() {
+	devicepkg_build $startdir $pkgname
+}
+
+package() {
+	devicepkg_package $startdir $pkgname
+}
+
+sha512sums="
+90df07018cfb68c53c54997eb0846866afa88b96bed0bcf435bcef0b437f099654583bcb7ff5abcafe1ba809be27ede43bc746daececfc2b5d25e585c872e4fe  deviceinfo
+d48bc261da6cd0cb51723d7995fd62d61ce2e1458753fa28a5711abce301ddd6fe97fea88739475751c248fedbbf242a040bf67c1df083472f5c72406e3f707c  modules-initfs
+"
