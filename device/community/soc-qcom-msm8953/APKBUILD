@@ -2,7 +2,7 @@
 pkgname=soc-qcom-msm8953
 pkgdesc="Common package for Qualcomm MSM8953 devices"
 pkgver=10
-pkgrel=0
+pkgrel=1
 url="https://postmarketos.org"
 license="BSD-3-Clause"
 arch="aarch64"
@@ -14,9 +14,9 @@ subpackages="
 	$pkgname-ucm
 "
 
-_ucm_commit="b6860eae577ddea6f55834850fb4ed403f208d2f"
+_ucm_commit="3ba40ddce14708bdc13ace56c347dcfcaeed3fa6"
 source="
-	$pkgname-$_ucm_commit.tar.gz::https://github.com/msm8953-mainline/alsa-ucm-conf/archive/$_ucm_commit.tar.gz
+	$pkgname-$_ucm_commit.tar.gz::https://github.com/bq-msm8953-mainline/alsa-ucm-conf/archive/$_ucm_commit.tar.gz
 	90-feedbackd-pm8xxx-vib.rules
 	q6voiced.conf
 	adreno-a506-quirks.sh
@@ -58,7 +58,7 @@ gpu() {
 }
 
 sha512sums="
-a7e6ca9fa3409403af780dfd97d2c5f502c54bf5877123739a893050a77d62ceeeafd73674fd34fe69eb7e1fffdb790f6df75633e6afd49b1c74da5f9c480047  soc-qcom-msm8953-b6860eae577ddea6f55834850fb4ed403f208d2f.tar.gz
+863f5343dbe3f6d7dd59c709d9c6b2f27963c5879b879b2fd418871ed52e7303ab038cfc45bdeb7e4e8e9b3efa7609a0021e387d5ada08852ad5b40809d59ccd  soc-qcom-msm8953-3ba40ddce14708bdc13ace56c347dcfcaeed3fa6.tar.gz
 90fca4a3291a2c84c0b20e41308c4698374ba896e9365ca80dbfd0c0c4f7dc08317f3dd865a3c7f6707c81b02f5bb24136d1172253d2e4fdd50039bbbf02a178  90-feedbackd-pm8xxx-vib.rules
 3a4a9322839d4b3ef9d79668a37840a9f444954759ae3c512e694051d2f9a2573db42ad6c4c1a5c75eeb861232a27ba1a8cef9b503decd54ead25a96e3dd6f98  q6voiced.conf
 d546c99ca8d406b4e2e3901a417e4e461314a38f2f01c48525e44ca524ad57af7bfc280f416bda90573b0bfb1cca27d45cb0a0ed44e999ef8d406a380d1fdbb2  adreno-a506-quirks.sh
